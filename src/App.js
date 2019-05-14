@@ -1,24 +1,22 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
+// Font Awesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faHome,
+  faBolt,
+  faBell,
+  faEnvelope
+} from "@fortawesome/free-solid-svg-icons";
+import Header from "./Header";
 
 function App() {
+  library.add(fab, faHome, faBolt, faBell, faEnvelope);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header className="App-header" />
     </div>
   );
 }

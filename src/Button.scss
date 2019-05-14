@@ -1,0 +1,22 @@
+$color-primary: #4AB3F4;
+$color-primary-focus: #1da1f2;
+$color-white: #ffffff;
+
+.btn-round {
+  border: none;
+  border-radius: 100px;
+  padding: 6px 16px;
+}
+
+.btn-tweet {
+  background-color: $color-primary;
+  color: $color-white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+
+  &:hover {
+    background-color: $color-primary-focus;
+  }
+}
