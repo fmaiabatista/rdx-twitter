@@ -1,0 +1,12 @@
+.user-image {
+  cursor: pointer;
+  display: flex;
+  
+  &.border {
+    border: 5px solid white;
+  }
+
+  img {
+    border-radius: 50%;
+  }
+}

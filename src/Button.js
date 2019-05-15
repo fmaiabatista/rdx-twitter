@@ -2,10 +2,12 @@ import React from "react";
 import "./Button.scss";
 
 function Button(props) {
-  const types = props.types.map(type => `btn-${type}`).join(" ");
+  const { classes, label } = props;
+
+  const extraClasses = classes.map(each => `btn-${each}`).join(" ");
 
   return (
-    <button className={`btn ${types} btn-${props.label}`}>{props.label}</button>
+    <button className={`btn btn-${label} ${extraClasses}`}>{label}</button>
   );
 }
 

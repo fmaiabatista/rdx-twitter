@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
+import UserImage from "./UserImage";
 
 function Header() {
   const links = [
@@ -32,10 +33,17 @@ function Header() {
       component: "Search"
     },
     {
-      component: "UserImage"
+      component: (
+        <UserImage
+          classes={["no-border"]}
+          src="https://imgplaceholder.com/32x32/1937cd/fff?text=User"
+          alt="User Image"
+          width="32"
+        />
+      )
     },
     {
-      component: <Button types={["round", "tweet"]} label="Tweet" />
+      component: <Button classes={["round", "tweet"]} label="Tweet" />
     }
   ];
 
