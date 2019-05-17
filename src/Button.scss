@@ -1,23 +1,36 @@
 $color-primary: #4AB3F4;
-$color-primary-focus: #1da1f2;
+$color-primary-hover: #1da1f2;
+$color-tertiary: #66757f;
+$color-tertiary-hover: #f5f8fa;
 
 .btn {
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 20px;
+
   &.btn-round {
-    border: none;
     border-radius: 100px;
     padding: 6px 16px;
   }
 
   &.btn-tweet {
     background-color: $color-primary;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 20px;
+    color: white;  
+    border: 1px solid $color-primary;
 
     &:hover {
-      background-color: $color-primary-focus;
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &.btn-edit-profile {
+    background-color: white;
+    color: $color-tertiary;
+    border: 1px solid $color-tertiary;
+
+    &:hover {
+      background-color: $color-tertiary-hover;
     }
   }
 }

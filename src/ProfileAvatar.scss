@@ -1,8 +1,8 @@
-.user-image {
+.profile-avatar {
   cursor: pointer;
   display: flex;
   
-  &.border {
+  &.border img {
     border: 5px solid white;
   }
 

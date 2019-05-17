@@ -10,13 +10,15 @@ import {
   faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 import Header from "./Header";
+import Page from "./Page";
 
 function App() {
   library.add(fab, faHome, faBolt, faBell, faEnvelope);
 
   return (
-    <div className="App">
-      <Header className="App-header" />
+    <div className="app">
+      <Header />
+      <Page type="profile" />
     </div>
   );
 }

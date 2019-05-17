@@ -1,3 +1,9 @@
 Header.js
-- Create UserImage component
+✓ Create ProfileAvatar component
 - Create Search component
+
+Page.js
+- Create switch for page type
+
+  Middle Nav
+  - Implement and style middle links

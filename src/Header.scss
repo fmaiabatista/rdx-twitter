@@ -1,13 +1,16 @@
-$color-base: #66757f;
+$color-link-base: #66757f;
 $color-logo: #38A1F3;
-$app-max-width: 890px;
+$color-link-hover: #1c94e0;
+$app-max-width: 1190px;
 
 header {
   display: flex;
   justify-content: center;
-  color: $color-base;
+  color: $color-link-base;
   height: 46px;
   border-bottom: 1px solid rgba(0,0,0,0.25);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
 
   .header-container {
     display: flex;
@@ -22,6 +25,8 @@ header {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 
     &:first-child ul {
       margin-right: auto;
@@ -42,6 +47,18 @@ header {
     list-style: none;
     display: flex;
     align-items: center;
+    height: 100%;
+
+    li {
+      display: flex;
+      height: 100%;
+      align-items: center;
+
+      &.active {
+        color: $color-link-hover;
+        border-bottom: 2px solid $color-link-hover;
+      }
+    }
 
     li + li {
       margin-left: 16px;
@@ -51,9 +68,16 @@ header {
       text-decoration: none;
       color: inherit;
       display: flex;
+      align-items: center;
+
+      .header-link-icon {
+        margin-left: 10px;
+      }
 
       .header-link-label {
+        font-size: 13px;
         margin-left: 8px;
+        margin-right: 10px;
       }
     }
   }

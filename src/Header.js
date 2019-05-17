@@ -2,29 +2,33 @@ import React from "react";
 import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
-import UserImage from "./UserImage";
+import ProfileAvatar from "./ProfileAvatar";
 
 function Header() {
   const links = [
     {
       icon: "home",
       label: "Home",
-      href: "#"
+      href: "#",
+      active: true
     },
     {
       icon: "bolt",
       label: "Moments",
-      href: "#"
+      href: "#",
+      active: false
     },
     {
       icon: "bell",
       label: "Notifications",
-      href: "#"
+      href: "#",
+      active: false
     },
     {
       icon: "envelope",
       label: "Messages",
-      href: "#"
+      href: "#",
+      active: false
     }
   ];
 
@@ -34,10 +38,9 @@ function Header() {
     },
     {
       component: (
-        <UserImage
+        <ProfileAvatar
           classes={["no-border"]}
-          src="https://imgplaceholder.com/32x32/1937cd/fff?text=User"
-          alt="User Image"
+          src="https://imgplaceholder.com/32x32/1937cd/fff?text=User" // * will become variable
           width="32"
         />
       )
@@ -53,7 +56,10 @@ function Header() {
         <div className="header-part header-part-left">
           <ul className="header-list-link">
             {links.map((link, index) => (
-              <li className="header-item-link" key={index}>
+              <li
+                className={`header-item-link${link.active ? " active" : ""}`}
+                key={index}
+              >
                 <a className="header-link" href={link.href}>
                   <span className="header-link-icon">
                     {<FontAwesomeIcon icon={link.icon} />}
