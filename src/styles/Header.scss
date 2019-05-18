@@ -1,15 +1,12 @@
-$color-link-base: #66757f;
-$color-logo: #38A1F3;
-$color-link-hover: #1c94e0;
-$app-max-width: 1190px;
+@import "measures";
+@import "colors";
 
 header {
   display: flex;
   justify-content: center;
-  color: $color-link-base;
+  color: $color-tertiary;
   height: 46px;
-  border-bottom: 1px solid rgba(0,0,0,0.25);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid $color-box-shadow;
   font-weight: bold;
 
   .header-container {
@@ -53,15 +50,12 @@ header {
       display: flex;
       height: 100%;
       align-items: center;
+      border-bottom: 2px solid transparent;
 
-      &.active {
+      &.active, &:hover {
         color: $color-link-hover;
         border-bottom: 2px solid $color-link-hover;
       }
-    }
-
-    li + li {
-      margin-left: 16px;
     }
 
     a {
@@ -69,15 +63,17 @@ header {
       color: inherit;
       display: flex;
       align-items: center;
-
-      .header-link-icon {
-        margin-left: 10px;
-      }
+      margin: 0 14px;
 
       .header-link-label {
         font-size: 13px;
         margin-left: 8px;
-        margin-right: 10px;
+      }
+    }
+
+    &.header-list-extra {
+      li + li {
+        margin-left: 16px;
       }
     }
   }

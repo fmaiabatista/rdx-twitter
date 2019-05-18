@@ -1,0 +1,55 @@
+@import "colors";
+
+.middle-nav-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+
+  ul {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    li {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      border-bottom: 2px solid transparent;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $color-tertiary;
+
+        span {
+          font-weight: bold;
+
+          &.label {
+            font-size: 12px;
+          }
+
+          &.value {
+            font-size: 18px;
+          }
+        }
+      }
+
+      &.active, &:hover {
+        border-bottom: 2px solid $color-primary-hover;
+
+        span.value {
+          color: $color-primary-hover;
+        }
+      }
+    }
+  }
+}

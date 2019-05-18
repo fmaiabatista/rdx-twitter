@@ -1,0 +1,51 @@
+@import "measures";
+@import "colors";
+
+.page-profile {
+  display: flex;
+  flex-direction: column;
+
+  .profile-background-img {
+    width: 100%;
+    max-width: 2560px;
+    height: 280px;
+
+    @media (min-width: 1100px) {
+      height: 300px;
+    }
+    @media (min-width: 1200px) {
+      height: 320px;
+    }
+    @media (min-width: 1370px) {
+      height: 360px;
+    }
+    @media (min-width: 1450px) {
+      height: 380px;
+    }
+    @media (min-width: 1510px) {
+      height: 420px;
+    }
+  }
+
+  .middle-nav {
+    display: flex;
+    height: 60px;
+    box-shadow: 0 1px 3px 0 $color-box-shadow;
+    z-index: 1;
+    
+    .middle-nav-wrapper {
+      display: flex;
+      margin: 0 auto;
+      width: 100%;
+      max-width: $app-max-width;
+
+      .profile-avatar-wrapper {
+        width: 290px;
+        margin-right: 10px;
+        display: flex;
+        position: relative;
+        bottom: 117px;
+      }
+    }
+  }
+}

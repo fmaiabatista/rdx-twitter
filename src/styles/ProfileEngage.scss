@@ -1,0 +1,15 @@
+@import "colors";
+
+.profile-engage {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+
+  .engage + .engage {
+    margin-top: 10px;
+  }
+
+  .engage {
+    background-color: white;
+  }
+}

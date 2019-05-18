@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProfileAvatar.scss";
+import "./styles/ProfileAvatar.scss";
 
 function ProfileAvatar(props) {
   const { classes, src, width } = props;

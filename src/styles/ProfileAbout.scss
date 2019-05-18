@@ -1,0 +1,67 @@
+@import "colors";
+
+.profile-about {
+  margin: 40px 0 16px 10px;
+
+  .user-identity {
+    margin-bottom: 16px;
+
+    h1, h2 {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 21px;
+      font-weight: bold;
+      line-height: 28px;
+    }
+
+    h2 {
+      font-size: 14px;
+      color: $color-tertiary;
+      font-weight: normal;
+    }
+  }
+
+  .user-bio {
+    margin-bottom: 16px;
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .user-more-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    li {
+      color: $color-tertiary;
+      display: flex;
+      align-items: center;
+
+      .user-more-item-icon {
+        font-size: 16px;
+      }
+
+      .user-more-item-label {
+        font-size: 14px;
+        margin-left: 4px;
+
+        a {
+          color: $color-primary-hover;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

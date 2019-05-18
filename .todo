@@ -3,7 +3,18 @@ Header.js
 - Create Search component
 
 Page.js
-- Create switch for page type
+✓ Create switch for page type
+- Remove eslint-disable class-methods-use-this
 
-  Middle Nav
-  - Implement and style middle links
+PageProfile.js
+- Fix middle nav structure in PageProfile
+
+ProfileMiddleNav.js
+✓ Create and style middle links
+
+Sass
+- Consider what partials are necessary
+- Consider optimizing ul styles to a mixin/extends
+
+Wrap up
+- Review which components can be turned into Functional Components

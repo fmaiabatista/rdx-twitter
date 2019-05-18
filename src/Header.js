@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.scss";
+import "./styles/Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
 import ProfileAvatar from "./ProfileAvatar";
@@ -40,7 +40,7 @@ function Header() {
       component: (
         <ProfileAvatar
           classes={["no-border"]}
-          src="https://imgplaceholder.com/32x32/1937cd/fff?text=User" // * will become variable
+          src="https://imgplaceholder.com/32x32/cccccc/757575/fa-user" // will become variable
           width="32"
         />
       )
@@ -62,7 +62,7 @@ function Header() {
               >
                 <a className="header-link" href={link.href}>
                   <span className="header-link-icon">
-                    {<FontAwesomeIcon icon={link.icon} />}
+                    <FontAwesomeIcon icon={link.icon} />
                   </span>
                   <span className="header-link-label">{link.label}</span>
                 </a>
@@ -73,7 +73,7 @@ function Header() {
 
         <div className="header-part header-part-middle">
           <span className="header-logo">
-            {<FontAwesomeIcon icon={["fab", "twitter"]} />}
+            <FontAwesomeIcon icon={["fab", "twitter"]} />
           </span>
         </div>
 

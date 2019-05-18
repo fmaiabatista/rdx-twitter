@@ -1,5 +1,5 @@
 import React from "react";
-import "./Button.scss";
+import "./styles/Button.scss";
 
 function Button(props) {
   const { classes, label } = props;

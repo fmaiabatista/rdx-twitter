@@ -1,0 +1,161 @@
+@import "colors";
+
+.who-to-follow {
+  ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    list-style: none;
+
+    li {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    &.top-nav-list {
+      padding: 15px 15px 0;
+      align-items: center;
+
+      li + small, small + li {
+        margin-left: 4px;
+      }
+
+      li {
+        a {
+          text-decoration: none;
+        }
+        
+        &.active {
+          a {
+            font-weight: bold;
+            font-size: 18px;
+            color: black;
+          }
+        }
+
+        &:not(.active) {
+          a {
+            font-size: 12px;
+            color: $color-primary-hover;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    &.users-list {
+      margin-top: 10px;
+      padding-bottom: 10px;
+      flex-direction: column;
+      border-bottom: 1px solid $color-app-background;
+
+      li + li {
+        margin-top: 10px;
+      }
+
+      li:not(:last-of-type) {
+        padding-bottom: 10px;
+        border-bottom: 1px solid $color-app-background;
+      }
+
+      li {
+        margin: 0 15px;
+
+        img {
+          border-radius: 50%;
+        }
+
+        // Hover over user image to highlight user name
+        a:hover + .flex-right .top .left .user-name a {
+          text-decoration: underline;
+          color: $color-primary-hover;
+        }
+
+        .flex-right {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          margin-left: 6px;
+
+          .top {
+            display: flex;
+            align-items: center;
+          
+            .left {
+              flex: 1;
+              font-size: 14px;
+
+              a {
+                text-decoration: none;
+              }
+
+              .user-name a {
+                font-weight: bold;
+                color: black;
+
+                &:hover {
+                  text-decoration: underline;
+                  color: $color-primary-hover;
+                }
+              }
+              
+              .user-username a {
+                margin-left: 4px;
+                color: $color-tertiary;
+              }
+            }
+
+            .right {
+              font-size: 10px;
+
+              a {
+                color: $color-dismiss;
+              }
+            }
+          }
+
+          .bottom {
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .import-external {
+    margin: 10px 15px;
+    cursor: pointer;
+
+    p {
+      margin: 0;
+      padding: 0;
+  
+      &.main {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      &.sub {
+        font-size: 12px;
+        color: $color-tertiary;
+        border-bottom: 1px solid $color-app-background;
+        padding-bottom: 10px;
+      }
+
+      &.other {
+        margin-top: 10px;
+        font-size: 12px;
+        color: $color-primary-hover;
+
+        &:hover {
+          text-decoration: underline
+        }
+      }
+    }
+  }
+}
