@@ -43,8 +43,7 @@ function App() {
     faComment,
     faRetweet,
     faHeart,
-    faChartBar,
-    faEnvelope
+    faChartBar
   );
 
   return (

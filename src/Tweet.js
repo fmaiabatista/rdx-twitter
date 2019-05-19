@@ -5,24 +5,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class Tweet extends Component {
   /* eslint-disable class-methods-use-this */
   renderActionsList() {
+    const {
+      tweet: {
+        comments,
+        retweets,
+        likes,
+        commented,
+        retweeted,
+        liked,
+        savedToPocket
+      }
+    } = this.props;
+
     const actions = [
       {
         label: "Comment",
         icon: <FontAwesomeIcon icon="comment" />,
-        value: 3,
-        used: false
+        value: comments,
+        used: commented
       },
       {
         label: "Retweet",
         icon: <FontAwesomeIcon icon="retweet" />,
-        value: 14,
-        used: true
+        value: retweets,
+        used: retweeted
       },
       {
         label: "Like",
         icon: <FontAwesomeIcon icon="heart" />,
-        value: 22,
-        used: true
+        value: likes,
+        used: liked
       },
       {
         label: "View Activity",
@@ -40,24 +52,24 @@ class Tweet extends Component {
         label: "Save to Pocket",
         icon: <FontAwesomeIcon icon={["fab", "get-pocket"]} />,
         value: null,
-        used: false
+        used: savedToPocket
       }
     ];
 
     return (
-      <div className="actions-list">
-        <ul>
-          {actions.map((action, index) => (
-            <li
-              className={`action action-${action.label.replace(/\s/g, "-")}`}
-              key={index}
-            >
-              <span className="action-icon">{action.icon}</span>
-              <span className="action-value">{action.value}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="actions-list">
+        {actions.map((action, index) => (
+          <li
+            className={`action action-${action.label.replace(/\s/g, "-")}${
+              action.used ? " used" : ""
+            }`}
+            key={index}
+          >
+            <span className="action-icon">{action.icon}</span>
+            <span className="action-value">{action.value}</span>
+          </li>
+        ))}
+      </ul>
     );
   }
 
@@ -70,45 +82,55 @@ class Tweet extends Component {
         authorLink,
         content,
         date,
-        comments,
-        retweets,
-        likes
+        retweeted
       }
     } = this.props;
 
     return (
       <div className="tweet-card">
-        <a className="author-avatar-link" href={authorLink}>
-          <img src={authorAvatar} alt="author" width="48px" height="48px" />
-        </a>
+        {retweeted && (
+          <div className="tweet-retweeted">
+            <span className="tweet-retweeted-icon">
+              <FontAwesomeIcon icon="retweet" />
+            </span>
+            <span className="tweet-retweeted-label">You retweeted</span>
+          </div>
+        )}
 
-        <div className="right-content">
-          <div className="tweet-meta">
-            <div className="authorship-info">
-              <span className="author-name">
-                <a href={authorLink}>{authorName}</a>
+        <div className="main">
+          <a className="author-avatar-link" href={authorLink}>
+            <img src={authorAvatar} alt="author" width="48px" height="48px" />
+          </a>
+
+          <div className="right-content">
+            <div className="tweet-meta">
+              <div className="authorship-info">
+                <span className="author-name">
+                  <a href={authorLink}>{authorName}</a>
+                </span>
+                <span className="author-username">
+                  <a href={authorLink}>{`@${authorUsername}`}</a>
+                </span>
+                <span className="divider-middot">·</span>
+                <span className="tweet-date">{date}</span>
+              </div>
+
+              <span className="more-options">
+                <FontAwesomeIcon icon="chevron-down" />
               </span>
-              <span className="author-username">
-                <a href={authorLink}>{`@${authorUsername}`}</a>
-              </span>
-              <span className="divider-middot">·</span>
-              <span className="tweet-date">{date}</span>
             </div>
-            <span className="more-options">
-              <FontAwesomeIcon icon="chevron-down" />
-            </span>
+
+            <div className="tweet-content">{content}</div>
+
+            <div className="translate">
+              <span className="translate-icon">
+                <FontAwesomeIcon icon="globe-americas" />
+              </span>
+              <span className="translate-label">Translate tweet</span>
+            </div>
+
+            {this.renderActionsList()}
           </div>
-
-          <div className="tweet-content">{content}</div>
-
-          <div className="translate">
-            <span className="translate-icon">
-              <FontAwesomeIcon icon="globe-americas" />
-            </span>
-            <span className="translate-label">Translate tweet</span>
-          </div>
-
-          {this.renderActionsList()}
         </div>
       </div>
     );

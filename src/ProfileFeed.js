@@ -13,10 +13,14 @@ class ProfileFeed extends Component {
         authorUsername: "foo",
         authorLink: "#",
         content: "bar",
-        date: "Apr 19th",
+        date: "Apr 1st",
         comments: 3,
         retweets: 14,
-        likes: 22
+        likes: 22,
+        commented: true,
+        retweeted: true,
+        liked: false,
+        savedToPocket: true
       },
       {
         id: 2,
@@ -25,10 +29,30 @@ class ProfileFeed extends Component {
         authorUsername: "hey",
         authorLink: "#",
         content: "hai",
-        date: "Dec 22nd",
+        date: "Jun 15th",
         comments: 18,
         retweets: 62,
-        likes: 58
+        likes: 58,
+        commented: false,
+        retweeted: true,
+        liked: true,
+        savedToPocket: false
+      },
+      {
+        id: 3,
+        authorAvatar: "https://imgplaceholder.com/48x48/cccccc/757575/fa-user",
+        authorName: "zoo",
+        authorUsername: "zoo",
+        authorLink: "#",
+        content: "zar",
+        date: "May 27th",
+        comments: null,
+        retweets: 32,
+        likes: 12,
+        commented: false,
+        retweeted: false,
+        liked: true,
+        savedToPocket: false
       }
     ];
 

@@ -1,85 +1,149 @@
 @import "colors";
 
 .tweet-card {
-  border-bottom: 1px solid $color-app-background;
-  padding: 9px 12px;
-  display: flex;
+  .tweet-retweeted {
+    font-size: 12px;
+    color: $color-tertiary;
+    margin: 5px 0 0 50px;
 
-  a {
-    cursor: default;
+    .tweet-retweeted-label {
+      margin-left: 8px;
+    }
   }
 
-  &:hover {
-    background-color: $color-tertiary-hover;
-  }
+  .main {
+    border-bottom: 1px solid $color-app-background;
+    padding: 5px 12px 10px;
+    display: flex;
 
-  .author-avatar-link img {
-    border-radius: 50%;
-  }
+    a {
+      cursor: default;
+    }
 
-  .author-avatar-link:hover + .content .tweet-meta .authorship-info .author-name {
-    text-decoration: underline;
-    color: $color-primary-hover;
-  }
+    &:hover {
+      background-color: $color-tertiary-hover;
+    }
 
-  .right-content {
-    margin-left: 12px;
-    width: 100%;
+    .author-avatar-link img {
+      border-radius: 50%;
+    }
 
-    .tweet-meta {
-      display: flex;
-      align-items: center;
+    .author-avatar-link:hover + .content .tweet-meta .authorship-info .author-name {
+      text-decoration: underline;
+      color: $color-primary-hover;
+    }
 
-      span a {
-        text-decoration: none;
-        color: inherit;
-      }
+    .right-content {
+      margin-left: 12px;
+      width: 100%;
 
-      .authorship-info {
-        flex: 1;
-        font-size: 14px;
+      .tweet-meta {
+        display: flex;
+        align-items: center;
 
-        span + span {
-          margin-left: 6px;
+        span a {
+          text-decoration: none;
+          color: inherit;
         }
 
-        .author-name {
-          font-weight: bold;
-          
-          a:hover {
-            text-decoration: underline;
-            color: $color-primary-hover;
+        .authorship-info {
+          flex: 1;
+          font-size: 14px;
+
+          span + span {
+            margin-left: 6px;
+          }
+
+          .author-name {
+            font-weight: bold;
+            
+            a:hover {
+              text-decoration: underline;
+              color: $color-primary-hover;
+            }
+          }
+
+          .author-username, .divider-middot, .tweet-date {
+            color: $color-tertiary;
           }
         }
 
-        .author-username, .divider-middot, .tweet-date {
+        .more-options {
+          font-size: 16px;
           color: $color-tertiary;
         }
       }
 
-      .more-options {
-        font-size: 16px;
+      .tweet-content {
+        font-size: 14px;
+      }
+
+      .translate {
+        margin-top: 8px;
+        font-size: 12px;
         color: $color-tertiary;
-      }
-    }
+        cursor: default;
 
-    .tweet-content {
-      font-size: 14px;
-    }
+        &:hover .translate-label {
+          text-decoration: underline;
+          color: $color-primary-hover;
+        }
 
-    .translate {
-      margin-top: 8px;
-      font-size: 12px;
-      color: $color-tertiary;
-      cursor: default;
-
-      &:hover .translate-label {
-        text-decoration: underline;
-        color: $color-primary-hover;
+        .translate-label {
+          margin-left: 6px;
+        }
       }
 
-      .translate-label {
-        margin-left: 6px;
+      .actions-list {
+        margin: 10px 0 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
+
+        li + li {
+          margin-left: 32px;
+        }
+
+        li {
+          display: flex;
+          align-items: center;
+          color: $color-tertiary;
+          
+          span + span {
+            margin-left: 8px;
+          }
+
+          .action-icon {
+            height: 18px;
+            font-size: 18px;
+          }
+          
+          .action-value {
+            font-size: 12px;
+            font-weight: bold;
+          }
+
+          &.used {
+            &.action-Comment,
+            &.action-View-Activity,
+            &.action-Direct-Message {
+              color: $color-primary-hover;
+            }
+
+            &.action-Retweet {
+              color: $color-retweet;
+            }
+
+            &.action-Like {
+              color: $color-like;
+            }
+
+            &.action-Save-to-Pocket {
+              color: $color-save-to-pocket;
+            }
+          }
+        }
       }
     }
   }
