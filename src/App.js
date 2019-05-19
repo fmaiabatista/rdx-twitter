@@ -19,7 +19,8 @@ import {
   faComment,
   faRetweet,
   faHeart,
-  faChartBar
+  faChartBar,
+  faSearch
 } from "@fortawesome/free-solid-svg-icons";
 // Related Components
 import Header from "./Header";
@@ -43,7 +44,8 @@ function App() {
     faComment,
     faRetweet,
     faHeart,
-    faChartBar
+    faChartBar,
+    faSearch
   );
 
   return (

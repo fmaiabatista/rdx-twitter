@@ -34,7 +34,19 @@ function Header() {
 
   const extras = [
     {
-      component: "Search"
+      // We can consider turning this into a separate component if it is reused elsewhere
+      component: (
+        <div className="search-container">
+          <input
+            type="text"
+            className="input input-search"
+            placeholder="Search Twitter"
+          />
+          <span className="search-icon">
+            <FontAwesomeIcon icon="search" />
+          </span>
+        </div>
+      )
     },
     {
       component: (
@@ -53,6 +65,7 @@ function Header() {
   return (
     <header>
       <div className="header-container">
+        {/* Left side of the header */}
         <div className="header-part header-part-left">
           <ul className="header-list-link">
             {links.map((link, index) => (
@@ -71,12 +84,14 @@ function Header() {
           </ul>
         </div>
 
+        {/* Middle of the header */}
         <div className="header-part header-part-middle">
           <span className="header-logo">
             <FontAwesomeIcon icon={["fab", "twitter"]} />
           </span>
         </div>
 
+        {/* Right side of the header */}
         <div className="header-part header-part-right">
           <ul className="header-list-extra">
             {extras.map((extra, index) => (

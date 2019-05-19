@@ -52,7 +52,7 @@ header {
       align-items: center;
       border-bottom: 2px solid transparent;
 
-      &.active, &:hover {
+      &.header-item-link.active, &.header-item-link:hover {
         color: $color-link-hover;
         border-bottom: 2px solid $color-link-hover;
       }
@@ -75,6 +75,30 @@ header {
       li + li {
         margin-left: 16px;
       }
+    }
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+
+    input {
+      border-radius: 100px;
+      padding: 6px 16px;
+      border: 1px solid $color-app-background;
+      background-color: $color-tertiary-hover;
+
+      &:focus {
+        border: 2px solid $color-primary-hover;
+        background-color: white;
+        outline: none;
+      }
+    }
+
+    .search-icon {
+      position: relative;
+      left: -25px;
+      top: -1px;
     }
   }
 }
