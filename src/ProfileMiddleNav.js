@@ -1,72 +1,83 @@
 import React, { Component } from "react";
 import "./styles/ProfileMiddleNav.scss";
+import ProfileAvatar from "./ProfileAvatar";
 import Button from "./Button";
 
 class ProfileMiddleNav extends Component {
   /* eslint-disable class-methods-use-this */
   render() {
+    const { user } = this.props;
+
     const options = [
       {
         label: "Tweets",
-        value: 15,
+        value: user.tweets.length,
         href: "#",
         active: true
       },
       {
         label: "Following",
-        value: 4,
+        value: user.following,
         href: "#",
         active: false
       },
       {
         label: "Followers",
-        value: 7,
+        value: user.followers,
         href: "#",
         active: false
       },
       {
         label: "Likes",
-        value: 64,
+        value: user.likes,
         href: "#",
         active: false
       },
       {
         label: "Lists",
-        value: 1,
+        value: user.lists,
         href: "#",
         active: false
       },
       {
         label: "Moments",
-        value: 0,
+        value: user.moments,
         href: "#",
         active: false
       }
     ];
 
     return (
-      <div className="middle-nav-container">
-        <ul>
-          {options.map((option, index) => (
-            <li
-              className={`middle-nav-item-link${
-                option.active ? " active" : ""
-              }`}
-              key={index}
-            >
-              <a href={option.href}>
-                <span className={`label label-${option.label}`}>
-                  {option.label}
-                </span>
-                <span className={`value value-${option.value}`}>
-                  {option.value}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+      <div className="middle-nav">
+        <div className="middle-nav-wrapper">
+          <div className="profile-avatar-wrapper">
+            <ProfileAvatar classes={["border"]} src={user.avatar} width="200" />
+          </div>
 
-        <Button classes={["round", "edit-profile"]} label="Edit Profile" />
+          <div className="middle-nav-container">
+            <ul>
+              {options.map((option, index) => (
+                <li
+                  className={`middle-nav-item-link${
+                    option.active ? " active" : ""
+                  }`}
+                  key={index}
+                >
+                  <a href={option.href}>
+                    <span className={`label label-${option.label}`}>
+                      {option.label}
+                    </span>
+                    <span className={`value value-${option.value}`}>
+                      {option.value}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <Button classes={["round", "edit-profile"]} label="Edit Profile" />
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,53 +1,76 @@
+@import "measures";
 @import "colors";
 
-.middle-nav-container {
-  flex: 1;
+.middle-nav {
   display: flex;
-  align-items: center;
-  margin: 0 auto;
-
-  ul {
-    flex: 1;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  height: 60px;
+  box-shadow: 0 1px 3px 0 $color-box-shadow;
+  z-index: 1;
+  
+  .middle-nav-wrapper {
     display: flex;
-    align-items: center;
-    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: $app-max-width;
 
-    li {
-      height: 100%;
+    .profile-avatar-wrapper {
+      width: 290px;
+      margin-right: 10px;
+      display: flex;
+      position: relative;
+      bottom: 117px;
+    }
+
+    .middle-nav-container {
+      flex: 1;
       display: flex;
       align-items: center;
-      padding: 0 15px;
-      border-bottom: 2px solid transparent;
-
-      a {
-        text-decoration: none;
-        color: inherit;
+      margin: 0 auto;
+    
+      ul {
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        list-style: none;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        color: $color-tertiary;
-
-        span {
-          font-weight: bold;
-
-          &.label {
-            font-size: 12px;
+        height: 100%;
+    
+        li {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          padding: 0 15px;
+          border-bottom: 2px solid transparent;
+    
+          a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $color-tertiary;
+    
+            span {
+              font-weight: bold;
+    
+              &.label {
+                font-size: 12px;
+              }
+    
+              &.value {
+                font-size: 18px;
+              }
+            }
           }
-
-          &.value {
-            font-size: 18px;
+    
+          &.active, &:hover {
+            border-bottom: 2px solid $color-primary-hover;
+    
+            span.value {
+              color: $color-primary-hover;
+            }
           }
-        }
-      }
-
-      &.active, &:hover {
-        border-bottom: 2px solid $color-primary-hover;
-
-        span.value {
-          color: $color-primary-hover;
         }
       }
     }

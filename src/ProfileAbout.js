@@ -5,15 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class ProfileAbout extends Component {
   /* eslint-disable class-methods-use-this */
   renderListUserMore() {
-    const user = {
-      name: "Felipe Maia",
-      username: "@fmaiabatista",
-      bio: "WWW developer. Following interesting people around the world.",
-      location: "Rio de Janeiro",
-      website: "felipemaia.com",
-      dateJoined: "Member since February 2011",
-      birthdate: "Born in July 30th, 1992"
-    };
+    const { user } = this.props;
 
     return (
       <ul className="user-more-list">
@@ -28,35 +20,31 @@ class ProfileAbout extends Component {
             <FontAwesomeIcon icon="link" fixedWidth />
           </span>
           <span className="user-more-item-label">
-            <a href={user.website}>{user.website}</a>
+            <a href={`https://www.${user.website}`}>{user.website}</a>
           </span>
         </li>
         <li className="user-more-item user-more-item-dateJoined">
           <span className="user-more-item-icon">
             <FontAwesomeIcon icon="calendar-alt" fixedWidth />
           </span>
-          <span className="user-more-item-label">{user.dateJoined}</span>
+          <span className="user-more-item-label">{`Member since ${
+            user.dateJoined
+          }`}</span>
         </li>
         <li className="user-more-item user-more-item-birthdate">
           <span className="user-more-item-icon">
             <FontAwesomeIcon icon="birthday-cake" fixedWidth />
           </span>
-          <span className="user-more-item-label">{user.birthdate}</span>
+          <span className="user-more-item-label">{`Born in ${
+            user.birthdate
+          }`}</span>
         </li>
       </ul>
     );
   }
 
   render() {
-    const user = {
-      name: "Felipe Maia",
-      username: "fmaiabatista",
-      bio: "WWW developer. Following interesting 👥 around the 🌎.",
-      location: "Rio de Janeiro",
-      website: "felipemaia.com",
-      dateJoined: "Member since February 2011",
-      birthday: "Born in July 30th, 1992"
-    };
+    const { user } = this.props;
 
     return (
       <div className="profile-about">

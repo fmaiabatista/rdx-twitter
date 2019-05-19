@@ -6,16 +6,19 @@ class Tweet extends Component {
   /* eslint-disable class-methods-use-this */
   renderActionsList() {
     const {
+      user: { username },
       tweet: {
+        retweetedBy,
         comments,
         retweets,
         likes,
         commented,
-        retweeted,
         liked,
         savedToPocket
       }
     } = this.props;
+
+    const retweeted = retweetedBy.indexOf(username) >= 0;
 
     const actions = [
       {
@@ -75,19 +78,15 @@ class Tweet extends Component {
 
   render() {
     const {
-      tweet: {
-        authorAvatar,
-        authorName,
-        authorUsername,
-        authorLink,
-        content,
-        date,
-        retweeted
-      }
+      user: { username },
+      tweet: { author, content, date, retweetedBy }
     } = this.props;
+
+    const retweeted = retweetedBy.indexOf(username) >= 0;
 
     return (
       <div className="tweet-card">
+        {/* Retweet label */}
         {retweeted && (
           <div className="tweet-retweeted">
             <span className="tweet-retweeted-icon">
@@ -98,18 +97,20 @@ class Tweet extends Component {
         )}
 
         <div className="main">
-          <a className="author-avatar-link" href={authorLink}>
-            <img src={authorAvatar} alt="author" width="48px" height="48px" />
+          {/* Author image on the left side */}
+          <a className="author-avatar-link" href={author.link}>
+            <img src={author.avatar} alt="author" width="48px" height="48px" />
           </a>
 
           <div className="right-content">
+            {/* Top section */}
             <div className="tweet-meta">
               <div className="authorship-info">
                 <span className="author-name">
-                  <a href={authorLink}>{authorName}</a>
+                  <a href={author.link}>{author.name}</a>
                 </span>
                 <span className="author-username">
-                  <a href={authorLink}>{`@${authorUsername}`}</a>
+                  <a href={author.link}>{`@${author.username}`}</a>
                 </span>
                 <span className="divider-middot">·</span>
                 <span className="tweet-date">{date}</span>
@@ -120,8 +121,10 @@ class Tweet extends Component {
               </span>
             </div>
 
+            {/* Content */}
             <div className="tweet-content">{content}</div>
 
+            {/* Translation section */}
             <div className="translate">
               <span className="translate-icon">
                 <FontAwesomeIcon icon="globe-americas" />
@@ -129,6 +132,7 @@ class Tweet extends Component {
               <span className="translate-label">Translate tweet</span>
             </div>
 
+            {/* Bottom section */}
             {this.renderActionsList()}
           </div>
         </div>

@@ -9,8 +9,8 @@ function Header() {
     {
       icon: "home",
       label: "Home",
-      href: "#",
-      active: true
+      href: "/",
+      active: false
     },
     {
       icon: "bolt",
