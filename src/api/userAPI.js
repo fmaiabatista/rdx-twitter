@@ -4,17 +4,35 @@
  * "all" method: returns the "users" array.
  * "get" method: returns a specific "user" object found by a given "username" parameter.
  *               Returns undefined otherwise.
+ *
+ * API adapted from https://to.ly/1zcHw and https://to.ly/1zcHy
  * */
+import getRandomIntInclusive from "../utils/utils";
 
 const userAPI = {
+  all() {
+    return this.users;
+  },
+  get(username) {
+    return new Promise((resolve, reject) => {
+      const isUser = user => user.username === username;
+      const user = this.users.find(isUser);
+      if (user) {
+        setTimeout(() => resolve(user), getRandomIntInclusive(200, 600));
+      } else {
+        const err = new Error("User not found");
+        reject(err);
+      }
+    });
+  },
   users: [
     {
       id: 1,
       name: "John Smith",
       username: "johnsmith",
       link: "/johnsmith",
-      cover: "./assets/images/michael-fousert-1556453-unsplash.jpg",
-      avatar: "https://imgplaceholder.com/200x200/2196f3/ffffff/fa-child",
+      cover: "./assets/images/cover_johnsmith.jpg",
+      avatar: "./assets/images/avatar_johnsmith.png",
       bio: "I'm John Smith, aka Smithy. I like to hike on the weekends. 🥾⛰",
       location: "Rio de Janeiro",
       website: "johnsmith.com",
@@ -32,7 +50,7 @@ const userAPI = {
             name: "John Smith",
             username: "johnsmith",
             link: "/johnsmith",
-            avatar: "https://imgplaceholder.com/200x200/2196f3/ffffff/fa-child"
+            avatar: "./assets/images/avatar_johnsmith.png"
           },
           retweetedBy: [],
           content: "A Tweet not as popular as the last one.",
@@ -50,7 +68,7 @@ const userAPI = {
             name: "John Smith",
             username: "johnsmith",
             link: "/johnsmith",
-            avatar: "https://imgplaceholder.com/200x200/2196f3/ffffff/fa-child"
+            avatar: "./assets/images/avatar_johnsmith.png"
           },
           retweetedBy: ["janedoe", "hackyoliver"],
           content: "This is a super popular Tweet. All my friends RT.",
@@ -69,8 +87,8 @@ const userAPI = {
       name: "Jane Doe",
       username: "janedoe",
       link: "/janedoe",
-      cover: "./assets/images/artem-maltsev-1217358-unsplash.jpg",
-      avatar: "https://imgplaceholder.com/200x200/ff9800/ffffff/fa-female",
+      cover: "./assets/images/cover_janedoe.jpg",
+      avatar: "./assets/images/avatar_janedoe.png",
       bio: "My name is Doe, Jane Doe. 🕵️‍♀️",
       location: "São Paulo",
       website: "doejanedoe.com",
@@ -88,7 +106,7 @@ const userAPI = {
             name: "John Smith",
             username: "johnsmith",
             link: "/johnsmith",
-            avatar: "https://imgplaceholder.com/200x200/2196f3/ffffff/fa-child"
+            avatar: "./assets/images/avatar_johnsmith.png"
           },
           retweetedBy: ["janedoe", "hackyoliver"],
           content: "This is a super popular Tweet. All my friends RT.",
@@ -107,9 +125,8 @@ const userAPI = {
       name: "Hacky Oliver",
       username: "hackyoliver",
       link: "/hackyoliver",
-      cover: "./assets/images/ales-nesetril-734016-unsplash.jpg",
-      avatar:
-        "https://imgplaceholder.com/200x200/4caf50/ffffff/fa-wheelchair-alt",
+      cover: "./assets/images/cover_hackyoliver.jpg",
+      avatar: "./assets/images/avatar_hackyoliver.png",
       bio: "H4CkY 0LL13 👨‍💻👾",
       location: "Belo Horizonte",
       website: "oll.io",
@@ -127,7 +144,7 @@ const userAPI = {
             name: "John Smith",
             username: "johnsmith",
             link: "/johnsmith",
-            avatar: "https://imgplaceholder.com/200x200/2196f3/ffffff/fa-child"
+            avatar: "./assets/images/avatar_johnsmith.png"
           },
           retweetedBy: ["janedoe", "hackyoliver"],
           content: "This is a super popular Tweet. All my friends RT.",
@@ -141,14 +158,7 @@ const userAPI = {
         }
       ]
     }
-  ],
-  all() {
-    return this.users;
-  },
-  get(username) {
-    const isUser = user => user.username === username;
-    return this.users.find(isUser);
-  }
+  ]
 };
 
 export default userAPI;

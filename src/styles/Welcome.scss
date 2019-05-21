@@ -1,0 +1,53 @@
+@import "colors";
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  .error {
+    font-size: 20px;
+    font-weight: bold;
+    color: $color-tertiary;
+  }
+
+  .intro {
+    margin-top: 50px;
+  }
+
+  .users {
+    margin-top: 12px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      list-style: none;
+      align-items: center;
+
+      li + li {
+        margin-left: 10px;
+      }
+
+      li {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+          color: $color-primary;
+
+          &:hover {
+            text-decoration: underline;
+            color: $color-primary-hover;
+          }
+        }
+      }
+    }
+  }
+}

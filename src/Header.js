@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
 import ProfileAvatar from "./ProfileAvatar";
 
-function Header() {
+function Header(props) {
+  const {
+    user: { avatar }
+  } = props;
+
   const links = [
     {
       icon: "home",
@@ -50,11 +54,7 @@ function Header() {
     },
     {
       component: (
-        <ProfileAvatar
-          classes={["no-border"]}
-          src="https://imgplaceholder.com/32x32/cccccc/757575/fa-user" // will become variable
-          width="32"
-        />
+        <ProfileAvatar classes={["no-border"]} src={avatar} width="32" />
       )
     },
     {

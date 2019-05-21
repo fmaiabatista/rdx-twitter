@@ -1,4 +1,4 @@
-/* ** Layout ** */
+/* ** Misc ** */
 
 Header.js
 ✓ Create ProfileAvatar component
@@ -6,26 +6,29 @@ Header.js
 
 Page.js
 ✓ Create switch for page type
-- Remove eslint-disable class-methods-use-this
 
 PageProfile.js
-- Fix middle nav structure in PageProfile
+✓ Fix middle nav structure in PageProfile
 
 ProfileMiddleNav.js
 ✓ Create and style middle links
 
 Sass
 - Consider what partials are necessary
-- Consider optimizing ul styles to a mixin/extends
+- Consider optimizing ul, li and a styles to a mixin/extends
 
 Wrap up
 - Review which components can be turned into Functional Components
+- Remove eslint-disable class-methods-use-this
 
 EngageWhoToFollow.js
 ✓ Check warning for missing key in list child (React Fragment)
 - Make 4th user and make it cycle depending on the page user is in
 
 /* ** Application State ** */
+
+Header.js
+✓ Link information with application state
 
 ProfileCoverImage.js
 ✓ Link information with application state

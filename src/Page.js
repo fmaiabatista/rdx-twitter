@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./styles/Page.scss";
-import Header from "./Header";
 import PageProfile from "./PageProfile";
 
 class Page extends Component {
@@ -9,8 +8,6 @@ class Page extends Component {
 
     return (
       <div className={`page page-${type}`}>
-        <Header />
-
         {type === "profile" && <PageProfile username={match.params.username} />}
 
         {/* Show error in case there's no page type */}
