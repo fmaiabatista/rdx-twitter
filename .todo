@@ -9,6 +9,8 @@ Page.js
 
 PageProfile.js
 ✓ Fix middle nav structure in PageProfile
+- Make tweet be from current user
+- Possibly make retweet be from the other users (optional)
 
 ProfileMiddleNav.js
 ✓ Create and style middle links
@@ -24,6 +26,10 @@ Wrap up
 EngageWhoToFollow.js
 ✓ Check warning for missing key in list child (React Fragment)
 - Make 4th user and make it cycle depending on the page user is in
+
+UserAPI.js
+- Refactor isUser logic. Possibly turn it into a function
+- Make new tweet be retweeted by users (optional)
 
 /* ** Application State ** */
 

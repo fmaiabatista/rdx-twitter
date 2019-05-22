@@ -6,7 +6,8 @@ import ProfileAvatar from "./ProfileAvatar";
 
 function Header(props) {
   const {
-    user: { avatar }
+    user: { avatar },
+    handleTweetFormOpen
   } = props;
 
   const links = [
@@ -58,7 +59,8 @@ function Header(props) {
       )
     },
     {
-      component: <Button classes={["round", "tweet"]} label="Tweet" />
+      component: <Button classes={["round", "tweet"]} label="Tweet" />,
+      onclick: () => handleTweetFormOpen()
     }
   ];
 
@@ -96,7 +98,9 @@ function Header(props) {
           <ul className="header-list-extra">
             {extras.map((extra, index) => (
               <li className="header-item-extra" key={index}>
-                <span className="header-extra">{extra.component}</span>
+                <span className="header-extra" onClick={extra.onclick}>
+                  {extra.component}
+                </span>
               </li>
             ))}
           </ul>

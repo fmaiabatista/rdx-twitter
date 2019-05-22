@@ -7,7 +7,7 @@
  *
  * API adapted from https://to.ly/1zcHw and https://to.ly/1zcHy
  * */
-import getRandomIntInclusive from "../utils/utils";
+import getRandomIntInclusive from "../helpers/helpers";
 
 const userAPI = {
   all() {
@@ -21,6 +21,29 @@ const userAPI = {
         setTimeout(() => resolve(user), getRandomIntInclusive(200, 600));
       } else {
         const err = new Error("User not found");
+        reject(err);
+      }
+    });
+  },
+  post(username, tweet) {
+    return new Promise((resolve, reject) => {
+      const isUser = user => user.username === username;
+      const user = this.users.find(isUser);
+      if (user) {
+        // Add tweet to author user
+        user.tweets.unshift(tweet);
+        // Add tweet to retweeting users
+        // user.tweets[0].retweetedBy.forEach(retweetUsername => {
+        //   const isRetweetUser = rtUser => rtUser.username === retweetUsername;
+        //   const retweetUser = this.users.find(isRetweetUser);
+        //   retweetUser.tweets.unshift(tweet);
+        // });
+        // Resume Promise resolve
+        setTimeout(() => {
+          resolve(user);
+        }, getRandomIntInclusive(100, 300));
+      } else {
+        const err = new Error("Can't post tweet");
         reject(err);
       }
     });
