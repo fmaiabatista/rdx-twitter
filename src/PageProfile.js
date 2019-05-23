@@ -8,6 +8,7 @@ import ProfileMiddleNav from "./ProfileMiddleNav";
 import ProfileContent from "./ProfileContent";
 import Loading from "./Loading";
 import UserAPI from "./api/userAPI";
+import { parseMedia } from "./helpers/helpers";
 
 class PageProfile extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class PageProfile extends Component {
       user: undefined,
       error: undefined,
       showTweetForm: false,
-      tweetValue: undefined,
+      tweetContent: undefined,
       tweetId: 3 // Hardcoded for mocking purposes
     };
 
@@ -40,7 +41,7 @@ class PageProfile extends Component {
   }
 
   render() {
-    const { loading, user, error, showTweetForm, tweetValue } = this.state;
+    const { loading, user, error, showTweetForm, tweetContent } = this.state;
 
     return (
       <>
@@ -50,11 +51,13 @@ class PageProfile extends Component {
         {/* Success */}
         {user && !error && (
           <>
-            {true && (
+            {showTweetForm && (
               <TweetForm
-                tweetValue={tweetValue}
+                user={user}
+                tweetContent={tweetContent}
                 handleTweetFormChange={this.handleTweetFormChange}
                 handleTweetFormSubmit={this.handleTweetFormSubmit}
+                handleTweetFormClose={this.handleTweetFormClose}
               />
             )}
             <Header
@@ -90,14 +93,13 @@ class PageProfile extends Component {
   }
 
   postTweet(username, tweet) {
-    this.setState({ loading: true });
     UserAPI.post(username, tweet).then(
       res => {
         this.setState(state => ({
           user: res,
-          tweetValue: "",
+          tweetContent: "",
           tweetId: state.tweetId + 1,
-          loading: false
+          showTweetForm: false
         }));
       },
       err => {
@@ -117,38 +119,39 @@ class PageProfile extends Component {
   }
 
   handleTweetFormChange(e) {
-    this.setState({ tweetValue: e.target.value });
+    this.setState({ tweetContent: e.target.value });
   }
 
   handleTweetFormSubmit(e) {
-    const {
-      user: { username },
-      tweetValue,
-      tweetId
-    } = this.state;
+    const { user, tweetContent, tweetId } = this.state;
+    e.preventDefault();
+
+    if (!tweetContent) {
+      return;
+    }
 
     // Mount mock tweet
     const tweet = {
       id: tweetId,
       author: {
-        name: "Jane Doe",
-        username: "janedoe",
-        link: "/janedoe",
-        avatar: "./assets/images/avatar_janedoe.png"
+        name: user.name,
+        username: user.username,
+        link: user.link,
+        avatar: user.avatar
       },
-      retweetedBy: ["johnsmith", "hackyoliver"],
-      content: tweetValue,
+      retweetedBy: [],
+      content: tweetContent,
+      media: parseMedia(tweetContent),
       date: "now",
       comments: 0,
-      retweets: 2,
+      retweets: 0,
       likes: 0,
       commented: false,
       liked: false,
       savedToPocket: false
     };
 
-    e.preventDefault();
-    this.postTweet(username, tweet);
+    this.postTweet(user.username, tweet);
   }
 }
 

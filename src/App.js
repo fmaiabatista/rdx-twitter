@@ -21,7 +21,9 @@ import {
   faRetweet,
   faHeart,
   faChartBar,
-  faSearch
+  faSearch,
+  faImage,
+  faFilm
 } from "@fortawesome/free-solid-svg-icons";
 // Related Components
 import Page from "./Page";
@@ -46,7 +48,9 @@ function App() {
     faRetweet,
     faHeart,
     faChartBar,
-    faSearch
+    faSearch,
+    faImage,
+    faFilm
   );
 
   return (

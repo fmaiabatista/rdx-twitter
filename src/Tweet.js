@@ -76,10 +76,30 @@ class Tweet extends Component {
     );
   }
 
+  renderIFrame(src) {
+    return (
+      <iframe
+        title={src}
+        width="500"
+        height="470"
+        src={src}
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    );
+  }
+
   render() {
     const {
       user: { username },
-      tweet: { author, content, date, retweetedBy }
+      tweet: {
+        author,
+        content,
+        date,
+        retweetedBy,
+        media: { type, src }
+      }
     } = this.props;
 
     const retweeted = retweetedBy.indexOf(username) >= 0;
@@ -103,7 +123,7 @@ class Tweet extends Component {
           </a>
 
           <div className="right-content">
-            {/* Top section */}
+            {/* Top section with meta info */}
             <div className="tweet-meta">
               <div className="authorship-info">
                 <span className="author-name">
@@ -122,15 +142,33 @@ class Tweet extends Component {
             </div>
 
             {/* Content */}
-            <div className="tweet-content">{content}</div>
+            {content && <div className="tweet-content">{content}</div>}
 
             {/* Translation section */}
-            <div className="translate">
-              <span className="translate-icon">
-                <FontAwesomeIcon icon="globe-americas" />
-              </span>
-              <span className="translate-label">Translate tweet</span>
-            </div>
+            {content && (
+              <div className="translate">
+                <span className="translate-icon">
+                  <FontAwesomeIcon icon="globe-americas" />
+                </span>
+                <span className="translate-label">Translate tweet</span>
+              </div>
+            )}
+
+            {/* Media section */}
+            {type && src && (
+              <div className="media">
+                {type === "image" && (
+                  <div className="image-container">
+                    <img src={src} alt="tweet attached" />
+                  </div>
+                )}
+                {type === "video" && (
+                  <div className="video-container">
+                    {this.renderIFrame(src)}
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Bottom section */}
             {this.renderActionsList()}

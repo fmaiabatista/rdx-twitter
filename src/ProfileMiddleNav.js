@@ -75,7 +75,11 @@ class ProfileMiddleNav extends Component {
               ))}
             </ul>
 
-            <Button classes={["round", "edit-profile"]} label="Edit Profile" />
+            <Button
+              type="button"
+              classes={["round", "edit-profile"]}
+              label="Edit Profile"
+            />
           </div>
         </div>
       </div>

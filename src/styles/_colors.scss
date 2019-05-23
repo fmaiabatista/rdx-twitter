@@ -7,12 +7,17 @@ $color-primary-hover: #1da1f2;
 $color-tertiary-hover: #f5f8fa;
 $color-link-hover: #1c94e0;
 $color-follow-hover: #e8f5fd;
+$color-toolbox-hover: rgba(29,161,242,0.4);
 
 // Background
 $color-app-background: #e6ecf0;
 
 // Decoration
 $color-box-shadow: rgba(0,0,0,0.25);
+$color-media-border: rgba(0,0,0,0.1);
+$color-opacity-background: rgba(0,0,0,0.5);
+$color-tweet-form-background: rgba(29,161,242,0.1);
+$color-tweet-form-divider: rgba(29,161,242,0.25);
 
 // Brand
 $color-logo: #38A1F3;
@@ -22,3 +27,4 @@ $color-dismiss: #ccd6dd;
 $color-retweet: #17bf63;
 $color-like: #e0245e;
 $color-save-to-pocket: #ef3f56;
+$color-fake-focus: #A4D9F9;

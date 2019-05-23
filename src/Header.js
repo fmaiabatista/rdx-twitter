@@ -59,8 +59,14 @@ function Header(props) {
       )
     },
     {
-      component: <Button classes={["round", "tweet"]} label="Tweet" />,
-      onclick: () => handleTweetFormOpen()
+      component: (
+        <Button
+          type="button"
+          classes={["round", "tweet"]}
+          label="Tweet"
+          onClick={() => handleTweetFormOpen()}
+        />
+      )
     }
   ];
 
@@ -98,9 +104,7 @@ function Header(props) {
           <ul className="header-list-extra">
             {extras.map((extra, index) => (
               <li className="header-item-extra" key={index}>
-                <span className="header-extra" onClick={extra.onclick}>
-                  {extra.component}
-                </span>
+                <span className="header-extra">{extra.component}</span>
               </li>
             ))}
           </ul>

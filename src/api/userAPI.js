@@ -7,7 +7,7 @@
  *
  * API adapted from https://to.ly/1zcHw and https://to.ly/1zcHy
  * */
-import getRandomIntInclusive from "../helpers/helpers";
+import { getRandomIntInclusive } from "../helpers/helpers";
 
 const userAPI = {
   all() {
@@ -30,15 +30,8 @@ const userAPI = {
       const isUser = user => user.username === username;
       const user = this.users.find(isUser);
       if (user) {
-        // Add tweet to author user
-        user.tweets.unshift(tweet);
-        // Add tweet to retweeting users
-        // user.tweets[0].retweetedBy.forEach(retweetUsername => {
-        //   const isRetweetUser = rtUser => rtUser.username === retweetUsername;
-        //   const retweetUser = this.users.find(isRetweetUser);
-        //   retweetUser.tweets.unshift(tweet);
-        // });
-        // Resume Promise resolve
+        user.tweets.unshift(tweet); // Add tweet to author user
+        console.log(tweet);
         setTimeout(() => {
           resolve(user);
         }, getRandomIntInclusive(100, 300));
@@ -66,6 +59,20 @@ const userAPI = {
       likes: 55,
       lists: 2,
       moments: 4,
+      suggestedFollows: [
+        {
+          name: "Jane Doe",
+          username: "janedoe",
+          link: "/janedoe",
+          avatar: "./assets/images/avatar_janedoe.png"
+        },
+        {
+          name: "Hacky Oliver",
+          username: "hackyoliver",
+          link: "/hackyoliver",
+          avatar: "./assets/images/avatar_hackyoliver.png"
+        }
+      ],
       tweets: [
         {
           id: 2,
@@ -77,6 +84,7 @@ const userAPI = {
           },
           retweetedBy: [],
           content: "A Tweet not as popular as the last one.",
+          media: { type: undefined, src: undefined },
           date: "Apr 2nd",
           comments: 2,
           retweets: 0,
@@ -95,6 +103,7 @@ const userAPI = {
           },
           retweetedBy: ["janedoe", "hackyoliver"],
           content: "This is a super popular Tweet. All my friends RT.",
+          media: { type: undefined, src: undefined },
           date: "Apr 1st",
           comments: 3,
           retweets: 2,
@@ -122,6 +131,20 @@ const userAPI = {
       likes: 14,
       lists: 0,
       moments: 1,
+      suggestedFollows: [
+        {
+          name: "Hacky Oliver",
+          username: "hackyoliver",
+          link: "/hackyoliver",
+          avatar: "./assets/images/avatar_hackyoliver.png"
+        },
+        {
+          name: "John Smith",
+          username: "johnsmith",
+          link: "/johnsmith",
+          avatar: "./assets/images/avatar_johnsmith.png"
+        }
+      ],
       tweets: [
         {
           id: 1,
@@ -134,6 +157,7 @@ const userAPI = {
           retweetedBy: ["janedoe", "hackyoliver"],
           content: "This is a super popular Tweet. All my friends RT.",
           date: "Apr 1st",
+          media: { type: undefined, src: undefined },
           comments: 3,
           retweets: 2,
           likes: 9,
@@ -160,6 +184,20 @@ const userAPI = {
       likes: 159,
       lists: 7,
       moments: 8,
+      suggestedFollows: [
+        {
+          name: "John Smith",
+          username: "johnsmith",
+          link: "/johnsmith",
+          avatar: "./assets/images/avatar_johnsmith.png"
+        },
+        {
+          name: "Jane Doe",
+          username: "janedoe",
+          link: "/janedoe",
+          avatar: "./assets/images/avatar_janedoe.png"
+        }
+      ],
       tweets: [
         {
           id: 1,
@@ -171,6 +209,7 @@ const userAPI = {
           },
           retweetedBy: ["janedoe", "hackyoliver"],
           content: "This is a super popular Tweet. All my friends RT.",
+          media: { type: undefined, src: undefined },
           date: "Apr 1st",
           comments: 3,
           retweets: 2,

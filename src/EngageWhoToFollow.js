@@ -44,35 +44,17 @@ class EngageWhoToFollow extends Component {
   }
 
   renderUsers() {
-    const whoToFollowUsers = [
-      {
-        image: "https://imgplaceholder.com/48x48/2196f3/ffffff/fa-child",
-        name: "John Smith",
-        username: "johnsmith",
-        link: "/johnsmith"
-      },
-      {
-        image: "https://imgplaceholder.com/48x48/ff9800/ffffff/fa-female",
-        name: "Jane Doe",
-        username: "janedoe",
-        link: "/janedoe"
-      },
-      {
-        image:
-          "https://imgplaceholder.com/48x48/4caf50/ffffff/fa-wheelchair-alt",
-        name: "Hacky Oliver",
-        username: "hackyoliver",
-        link: "hackyoliver"
-      }
-    ];
+    const {
+      user: { suggestedFollows }
+    } = this.props;
 
     return (
       <ul className="users-list">
-        {whoToFollowUsers.map((user, index) => (
+        {suggestedFollows.map((user, index) => (
           <li key={index}>
             <Link to={user.link}>
               <img
-                src={user.image}
+                src={user.avatar}
                 alt={`user ${user.name}`}
                 width="48px"
                 height="48px"
@@ -99,7 +81,11 @@ class EngageWhoToFollow extends Component {
               </div>
 
               <div className="bottom">
-                <Button classes={["round", "follow"]} label="Follow" />
+                <Button
+                  type="button"
+                  classes={["round", "follow"]}
+                  label="Follow"
+                />
               </div>
             </div>
           </li>

@@ -1,0 +1,113 @@
+@import "colors";
+
+.tweet-form-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+
+  .tweet-form-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: $color-opacity-background;
+    position: absolute;
+    z-index: 2; // Above profile middle nav and header search icon
+  }
+
+  .tweet-form {
+    background: white;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    margin-top: 38px;
+    z-index: 3; // Above overlay
+
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid $color-tweet-form-divider;
+
+      label {
+        flex: 1;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .dismiss {
+        cursor: pointer;
+      }
+    }
+
+    .body {
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      background: $color-tweet-form-background;
+
+      .content-container {
+        display: flex;
+
+        textarea {
+          margin-left: 8px;
+          width: 540px;
+          border-radius: 8px;
+          border: 1px solid $color-fake-focus;
+          outline: none;
+          resize: none;
+          padding: 8px;
+          font-size: 14px;
+          
+          &:focus {
+            box-shadow: 0 0 0 1px $color-fake-focus;
+          }
+        }
+      }
+  
+      .toolbox-container {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+        margin-left: 40px; // 32px from avatar + 8px from textarea padding
+
+        ul {
+          flex: 1;
+          margin: 0;
+          padding: 0;
+          height: 34px; // Hardcoded to be the same height as button
+          display: flex;
+          list-style: none;
+          align-items: center;
+          
+          a + a {
+            margin-left: 5px;
+          }
+
+          a {
+            height: 100%;
+            padding: 0 10px; // Make area clickable
+            // margin: 0 5px; // But not too close to adjacent elements
+            border: 1px solid transparent;
+            border-radius: 4px;
+          
+            &:hover {
+              border: 1px solid $color-toolbox-hover;
+            }
+
+            li {
+              display: flex;
+              align-items: center;
+              font-size: 22px;
+              color: $color-primary;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

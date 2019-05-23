@@ -95,6 +95,21 @@
         }
       }
 
+      .media {
+        width: 500px;
+        height: 470px;
+        margin-top: 10px;
+        border: 1px solid $color-media-border;
+        border-radius: 12px;
+
+        img {
+          border-radius: 12px;
+          width: 500px;
+          height: 470px;
+          object-fit: cover;
+        }
+      }
+
       .actions-list {
         margin: 10px 0 0;
         padding: 0;

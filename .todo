@@ -22,14 +22,22 @@ Sass
 Wrap up
 - Review which components can be turned into Functional Components
 - Remove eslint-disable class-methods-use-this
+- Add PropTypes to enforce typing
 
 EngageWhoToFollow.js
 ✓ Check warning for missing key in list child (React Fragment)
-- Make 4th user and make it cycle depending on the page user is in
+✓ Make suggested follow vary depending on the user
 
 UserAPI.js
 - Refactor isUser logic. Possibly turn it into a function
 - Make new tweet be retweeted by users (optional)
+
+Tweet.js
+✓ Make TweetForm modal
+- Make Click To Expand for "image" media type (optional)
+
+TweetForm.js
+- Consider adding some icons to toolbox section
 
 /* ** Application State ** */
 
