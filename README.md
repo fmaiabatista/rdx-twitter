@@ -55,7 +55,7 @@
 - ```yarn start```
 - The project will be available at ```localhost:3000``` in your browser.
 
-#### 2. [Play directly via Surge link](twitter-radix.surge.sh)
+#### 2. [Play directly via Surge link](http://twitter-radix.surge.sh/)
 
 ### Observations:
 
