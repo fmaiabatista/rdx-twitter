@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React, { Fragment } from "react";
 import "./styles/ProfileWhoToFollow.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
 
-class ProfileWhoToFollow extends Component {
-  /* eslint-disable class-methods-use-this */
-  renderTopNav() {
+export default function ProfileWhoToFollow(props) {
+  function renderTopNav() {
     const whoToFollowNavItems = [
       {
         label: "Who to follow",
@@ -28,7 +27,7 @@ class ProfileWhoToFollow extends Component {
     return (
       <ul className="top-nav-list">
         {whoToFollowNavItems.map((item, index) => (
-          <React.Fragment key={index}>
+          <Fragment key={index}>
             <li
               className={`item-${item.label.replace(/\s/g, "-")}${
                 item.active ? " active" : ""
@@ -37,16 +36,16 @@ class ProfileWhoToFollow extends Component {
               <a href={item.href}>{item.label}</a>
             </li>
             {index < whoToFollowNavItems.length - 1 && <small>·</small>}
-          </React.Fragment>
+          </Fragment>
         ))}
       </ul>
     );
   }
 
-  renderUsers() {
+  function renderUsers() {
     const {
       user: { suggestedFollows }
-    } = this.props;
+    } = props;
 
     return (
       <ul className="users-list">
@@ -94,22 +93,18 @@ class ProfileWhoToFollow extends Component {
     );
   }
 
-  render() {
-    return (
-      <div className="engage who-to-follow">
-        {this.renderTopNav()}
+  return (
+    <div className="engage who-to-follow">
+      {renderTopNav()}
 
-        {this.renderUsers()}
+      {renderUsers()}
 
-        <div className="import-external">
-          <FontAwesomeIcon icon="mail-bulk" />
-          <p className="main">Find people you know</p>
-          <p className="sub">Import contacts from your mail</p>
-          <p className="other">Connect other contact lists</p>
-        </div>
+      <div className="import-external">
+        <FontAwesomeIcon icon="mail-bulk" />
+        <p className="main">Find people you know</p>
+        <p className="sub">Import contacts from your mail</p>
+        <p className="other">Connect other contact lists</p>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default ProfileWhoToFollow;

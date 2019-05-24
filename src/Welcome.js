@@ -18,6 +18,7 @@ export default function Welcome(props) {
       )}
 
       {/* Normal flow of the page */}
+      {/* Values were hardcoded but could be turned into a mapped list */}
       <div className="intro">Welcome, choose a user to start:</div>
       <div className="users">
         <ul>

@@ -20,7 +20,7 @@ class PageProfile extends Component {
       error: undefined,
       showTweetForm: false,
       tweetContent: undefined,
-      tweetId: 3 // Hardcoded for mocking purposes
+      tweetId: 4 // Hardcoded for mocking purposes
     };
 
     this.handleTweetFormOpen = this.handleTweetFormOpen.bind(this);

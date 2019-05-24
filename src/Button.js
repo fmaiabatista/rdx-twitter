@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/Button.scss";
 
-function Button(props) {
+export default function Button(props) {
   const { classes, label, onClick, type } = props;
 
   const extraClasses = classes.map(each => `btn-${each}`).join(" ");
@@ -25,5 +25,3 @@ function Button(props) {
     );
   }
 }
-
-export default Button;

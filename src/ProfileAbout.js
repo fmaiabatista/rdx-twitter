@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles/ProfileAbout.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class ProfileAbout extends Component {
-  /* eslint-disable class-methods-use-this */
-  renderListUserMore() {
-    const { user } = this.props;
+export default function ProfileAbout(props) {
+  const { user } = props;
 
+  function renderListUserMore() {
     return (
       <ul className="user-more-list">
         <li className="user-more-item user-more-item-location">
@@ -43,22 +42,16 @@ class ProfileAbout extends Component {
     );
   }
 
-  render() {
-    const { user } = this.props;
-
-    return (
-      <div className="profile-about">
-        <div className="user-identity">
-          <h1>{user.name}</h1>
-          <h2>{`@${user.username}`}</h2>
-        </div>
-        <div className="user-bio">
-          <p>{user.bio}</p>
-        </div>
-        <div className="user-more">{this.renderListUserMore()}</div>
+  return (
+    <div className="profile-about">
+      <div className="user-identity">
+        <h1>{user.name}</h1>
+        <h2>{`@${user.username}`}</h2>
       </div>
-    );
-  }
+      <div className="user-bio">
+        <p>{user.bio}</p>
+      </div>
+      <div className="user-more">{renderListUserMore()}</div>
+    </div>
+  );
 }
-
-export default ProfileAbout;

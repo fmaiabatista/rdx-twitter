@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/ProfileAvatar.scss";
 
-function ProfileAvatar(props) {
+export default function ProfileAvatar(props) {
   const { classes, src, width } = props;
 
   const extraClasses = classes.join(" ");
@@ -12,5 +12,3 @@ function ProfileAvatar(props) {
     </div>
   );
 }
-
-export default ProfileAvatar;

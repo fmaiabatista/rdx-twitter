@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles/ProfileFeed.scss";
 import Tweet from "./Tweet";
 
-class ProfileFeed extends Component {
-  /* eslint-disable class-methods-use-this */
-  renderTimeline() {
-    const { user } = this.props;
-    const { tweets } = user;
+export default function ProfileFeed(props) {
+  const { user } = props;
+  const { tweets } = user;
 
+  function renderTimeline() {
     return (
       <ul className="tweet-list">
         {tweets.map(tweet => (
@@ -19,42 +18,39 @@ class ProfileFeed extends Component {
     );
   }
 
-  render() {
-    const topNavItems = [
-      {
-        label: "Tweets",
-        href: "#",
-        active: true
-      },
-      {
-        label: "Tweets and Answers",
-        href: "#",
-        active: false
-      }
-    ];
+  const topNavItems = [
+    {
+      label: "Tweets",
+      href: "#",
+      active: true
+    },
+    {
+      label: "Tweets and Answers",
+      href: "#",
+      active: false
+    }
+  ];
 
-    return (
-      <div className="profile-feed">
-        <div className="top-nav">
-          <ul>
-            {topNavItems.map((item, index) => (
-              <li
-                className={`top-nav-item item-${item.label.replace(
-                  /\s/g,
-                  "-"
-                )}${item.active ? " active" : ""}`}
-                key={index}
-              >
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {this.renderTimeline()}
+  return (
+    <div className="profile-feed">
+      {/* Feed top navigation items */}
+      <div className="top-nav">
+        <ul>
+          {topNavItems.map((item, index) => (
+            <li
+              className={`top-nav-item item-${item.label.replace(/\s/g, "-")}${
+                item.active ? " active" : ""
+              }`}
+              key={index}
+            >
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
       </div>
-    );
-  }
-}
 
-export default ProfileFeed;
+      {/* Tweets timeline */}
+      {renderTimeline()}
+    </div>
+  );
+}

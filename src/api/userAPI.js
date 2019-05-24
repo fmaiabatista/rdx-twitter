@@ -83,15 +83,18 @@ const userAPI = {
             avatar: "./assets/images/avatar_johnsmith.png"
           },
           retweetedBy: [],
-          content: "A Tweet not as popular as the last one.",
-          media: { type: undefined, src: undefined },
+          content: "Hello, World.",
+          media: {
+            type: "image",
+            src: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
+          },
           date: "Apr 2nd",
-          comments: 2,
+          comments: 5,
           retweets: 0,
-          likes: 2,
+          likes: 16,
           commented: false,
           liked: true,
-          savedToPocket: false
+          savedToPocket: true
         },
         {
           id: 1,
@@ -147,6 +150,29 @@ const userAPI = {
       ],
       tweets: [
         {
+          id: 3,
+          author: {
+            name: "Hacky Oliver",
+            username: "hackyoliver",
+            link: "/hackyoliver",
+            avatar: "./assets/images/avatar_hackyoliver.png"
+          },
+          retweetedBy: ["janedoe"],
+          content:
+            "Super coding session while listening to https://www.youtube.com/watch?v=XWGXimIJhGg",
+          media: {
+            type: "video",
+            src: "https://www.youtube.com/embed/XWGXimIJhGg"
+          },
+          date: "Fri 24th",
+          comments: 3,
+          retweets: 2,
+          likes: 9,
+          commented: true,
+          liked: false,
+          savedToPocket: true
+        },
+        {
           id: 1,
           author: {
             name: "John Smith",
@@ -199,6 +225,29 @@ const userAPI = {
         }
       ],
       tweets: [
+        {
+          id: 3,
+          author: {
+            name: "Hacky Oliver",
+            username: "hackyoliver",
+            link: "/hackyoliver",
+            avatar: "./assets/images/avatar_hackyoliver.png"
+          },
+          retweetedBy: ["janedoe"],
+          content:
+            "Super coding session while listening to https://www.youtube.com/watch?v=XWGXimIJhGg",
+          media: {
+            type: "video",
+            src: "https://www.youtube.com/embed/XWGXimIJhGg"
+          },
+          date: "Fri 24th",
+          comments: 3,
+          retweets: 2,
+          likes: 9,
+          commented: true,
+          liked: false,
+          savedToPocket: true
+        },
         {
           id: 1,
           author: {

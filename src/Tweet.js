@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles/Tweet.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class Tweet extends Component {
-  /* eslint-disable class-methods-use-this */
-  renderActionsList() {
+export default function Tweet(props) {
+  function renderActionsList() {
     const {
       user: { username },
       tweet: {
@@ -16,7 +15,7 @@ class Tweet extends Component {
         liked,
         savedToPocket
       }
-    } = this.props;
+    } = props;
 
     const retweeted = retweetedBy.indexOf(username) >= 0;
 
@@ -76,7 +75,7 @@ class Tweet extends Component {
     );
   }
 
-  renderIFrame(src) {
+  function renderIFrame(src) {
     return (
       <iframe
         title={src}
@@ -90,93 +89,87 @@ class Tweet extends Component {
     );
   }
 
-  render() {
-    const {
-      user: { username },
-      tweet: {
-        author,
-        content,
-        date,
-        retweetedBy,
-        media: { type, src }
-      }
-    } = this.props;
+  const {
+    user: { username },
+    tweet: {
+      author,
+      content,
+      date,
+      retweetedBy,
+      media: { type, src }
+    }
+  } = props;
 
-    const retweeted = retweetedBy.indexOf(username) >= 0;
+  const retweeted = retweetedBy.indexOf(username) >= 0;
 
-    return (
-      <div className="tweet-card">
-        {/* Retweet label */}
-        {retweeted && (
-          <div className="tweet-retweeted">
-            <span className="tweet-retweeted-icon">
-              <FontAwesomeIcon icon="retweet" />
-            </span>
-            <span className="tweet-retweeted-label">You retweeted</span>
-          </div>
-        )}
+  return (
+    <div className="tweet-card">
+      {/* Retweet label */}
+      {retweeted && (
+        <div className="tweet-retweeted">
+          <span className="tweet-retweeted-icon">
+            <FontAwesomeIcon icon="retweet" />
+          </span>
+          <span className="tweet-retweeted-label">You retweeted</span>
+        </div>
+      )}
 
-        <div className="main">
-          {/* Author image on the left side */}
-          <a className="author-avatar-link" href={author.link}>
-            <img src={author.avatar} alt="author" width="48px" height="48px" />
-          </a>
+      <div className="main">
+        {/* Author image on the left side */}
+        <a className="author-avatar-link" href={author.link}>
+          <img src={author.avatar} alt="author" width="48px" height="48px" />
+        </a>
 
-          <div className="right-content">
-            {/* Top section with meta info */}
-            <div className="tweet-meta">
-              <div className="authorship-info">
-                <span className="author-name">
-                  <a href={author.link}>{author.name}</a>
-                </span>
-                <span className="author-username">
-                  <a href={author.link}>{`@${author.username}`}</a>
-                </span>
-                <span className="divider-middot">·</span>
-                <span className="tweet-date">{date}</span>
-              </div>
-
-              <span className="more-options">
-                <FontAwesomeIcon icon="chevron-down" />
+        <div className="right-content">
+          {/* Top section with meta info */}
+          <div className="tweet-meta">
+            <div className="authorship-info">
+              <span className="author-name">
+                <a href={author.link}>{author.name}</a>
               </span>
+              <span className="author-username">
+                <a href={author.link}>{`@${author.username}`}</a>
+              </span>
+              <span className="divider-middot">·</span>
+              <span className="tweet-date">{date}</span>
             </div>
 
-            {/* Content */}
-            {content && <div className="tweet-content">{content}</div>}
-
-            {/* Translation section */}
-            {content && (
-              <div className="translate">
-                <span className="translate-icon">
-                  <FontAwesomeIcon icon="globe-americas" />
-                </span>
-                <span className="translate-label">Translate tweet</span>
-              </div>
-            )}
-
-            {/* Media section */}
-            {type && src && (
-              <div className="media">
-                {type === "image" && (
-                  <div className="image-container">
-                    <img src={src} alt="tweet attached" />
-                  </div>
-                )}
-                {type === "video" && (
-                  <div className="video-container">
-                    {this.renderIFrame(src)}
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Bottom section */}
-            {this.renderActionsList()}
+            <span className="more-options">
+              <FontAwesomeIcon icon="chevron-down" />
+            </span>
           </div>
+
+          {/* Content */}
+          {content && <div className="tweet-content">{content}</div>}
+
+          {/* Translation section */}
+          {content && (
+            <div className="translate">
+              <span className="translate-icon">
+                <FontAwesomeIcon icon="globe-americas" />
+              </span>
+              <span className="translate-label">Translate tweet</span>
+            </div>
+          )}
+
+          {/* Media section */}
+          {type && src && (
+            <div className="media">
+              {type === "image" && (
+                <div className="image-container">
+                  <img src={src} alt="tweet attached" />
+                </div>
+              )}
+              {type === "video" && (
+                <div className="video-container">{renderIFrame(src)}</div>
+              )}
+            </div>
+          )}
+
+          {/* Bottom section */}
+          {renderActionsList()}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default Tweet;

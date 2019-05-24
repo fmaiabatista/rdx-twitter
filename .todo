@@ -9,20 +9,19 @@ Page.js
 
 PageProfile.js
 ✓ Fix middle nav structure in PageProfile
-- Make tweet be from current user
-- Possibly make retweet be from the other users (optional)
+✓ Make tweet be from current user
 
 ProfileMiddleNav.js
 ✓ Create and style middle links
 
 Sass
-- Consider what partials are necessary
-- Consider optimizing ul, li and a styles to a mixin/extends
+✓ Consider what partials are necessary
+- Consider optimizing ul, li and a styles to a mixin/extends (optional)
 
 Wrap up
-- Review which components can be turned into Functional Components
-- Remove eslint-disable class-methods-use-this
-- Add PropTypes to enforce typing
+✓ Review which components can be turned into Functional Components
+✓ Remove eslint-disable class-methods-use-this
+- Add PropTypes to enforce typing (optional)
 
 EngageWhoToFollow.js
 ✓ Check warning for missing key in list child (React Fragment)
@@ -37,7 +36,7 @@ Tweet.js
 - Make Click To Expand for "image" media type (optional)
 
 TweetForm.js
-- Consider adding some icons to toolbox section
+✓ Consider adding some icons to toolbox section
 
 /* ** Application State ** */
 
@@ -50,15 +49,14 @@ ProfileCoverImage.js
 ProfileMiddleNav.js
 ✓ Link information with application state
 
-ProfileContent.js
-  ProfileAbout.js
-  ✓ Link information with application state
+ProfileAbout.js
+✓ Link information with application state
 
-  ProfileFeed.js
-  ✓ Link information with application state
+ProfileFeed.js
+✓ Link information with application state
 
-  Tweet.js
-  ✓ Link information with application state
+Tweet.js
+✓ Link information with application state
 
-  ProfileEngage.js
-  - Link information with application state
+ProfileEngage.js
+✓ Link information with application state
