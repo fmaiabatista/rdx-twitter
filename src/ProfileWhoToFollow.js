@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./styles/EngageWhoToFollow.scss";
+import "./styles/ProfileWhoToFollow.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
 
-class EngageWhoToFollow extends Component {
+class ProfileWhoToFollow extends Component {
   /* eslint-disable class-methods-use-this */
   renderTopNav() {
     const whoToFollowNavItems = [
@@ -112,4 +112,4 @@ class EngageWhoToFollow extends Component {
   }
 }
 
-export default EngageWhoToFollow;
+export default ProfileWhoToFollow;
