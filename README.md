@@ -49,7 +49,7 @@
 
 #### 1. Build and run the project locally
 
-- ```git clone git@github.com:fmaiabatista/fm_twitter_radixeng.git```
+- ```git clone git@github.com:fmaiabatista/twitter_copywork.git```
 - ```npm install -g yarn```
 - ```yarn install```
 - ```yarn start```
