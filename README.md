@@ -2,6 +2,8 @@
 
 > 💡 [Play directly via Netlify](https://twitter-copywork.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4cba9a47-8d2a-4c85-891c-ffda82fb9952/deploy-status)](https://app.netlify.com/sites/twitter-copywork/deploys)
+
 ### Features:
 
 - Single Page Application (SPA) which is a clone of Twitter.
