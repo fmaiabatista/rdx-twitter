@@ -1,5 +1,7 @@
 # Twitter Clone Challenge by Radix
 
+> 💡 [Play directly via Netlify](https://twitter-copywork.netlify.app/)
+
 ### Features:
 
 - Single Page Application (SPA) which is a clone of Twitter.
@@ -55,7 +57,7 @@
 - ```yarn start```
 - The project will be available at ```localhost:3000``` in your browser.
 
-#### 2. [Play directly via Surge link](http://twitter-radix.surge.sh/)
+#### 2. [Play directly via Netlify](https://twitter-copywork.netlify.app/)
 
 ### Observations:
 
